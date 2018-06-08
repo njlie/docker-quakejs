@@ -9642,34 +9642,35 @@ function copyTempDouble(ptr) {
   
   			console.log('In order to continue, the official Quake3 demo will need to be installed.');
   			console.log('Please read through the demo\'s EULA and type \'y\' if you agree to it and would like to continue.\n');
+        return callback();
+
+  			// console.log(lines.pop());
   
-  			console.log(lines.pop());
+  			// var rl = readline.createInterface(process.stdin, process.stdout);
+  			// rl.prompt();
+          
+  			// rl.on('line', function (line) {
+  			// 	line = line.trim();
   
-  			var rl = readline.createInterface(process.stdin, process.stdout);
-  			rl.prompt();
+  			// 	if (lines.length) {
+  			// 		console.log(lines.pop());
+  			// 		return;
+  			// 	}
   
-  			rl.on('line', function (line) {
-  				line = line.trim();
+  			// 	if (!line) {
+  			// 		rl.setPrompt('Agree? (y/n): ');
+  			// 		rl.prompt();
+  			// 		return;
+  			// 	}
   
-  				if (lines.length) {
-  					console.log(lines.pop());
-  					return;
-  				}
+  			// 	rl.close();
   
-  				if (!line) {
-  					rl.setPrompt('Agree? (y/n): ');
-  					rl.prompt();
-  					return;
-  				}
+  			// 	if (line !== 'y' && line !== 'yes') {
+  			// 		return callback(new Error('You must agree to the EULA to continue'));
+  			// 	}
   
-  				rl.close();
-  
-  				if (line !== 'y' && line !== 'yes') {
-  					return callback(new Error('You must agree to the EULA to continue'));
-  				}
-  
-  				return callback();
-  			});
+  			// 	return callback();
+  			// });
   		}};function _Sys_Milliseconds() {
   		var time = process.hrtime();
   
