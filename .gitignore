@@ -2,5 +2,5 @@
 assets/
 assets_src/
 node_modules/
-# base/
+base/
 package-lock.json
