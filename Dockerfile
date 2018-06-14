@@ -1,10 +1,13 @@
 FROM node:latest
-
 WORKDIR /app
+
+# RUN git clone https://github.com/njlie/docker-quakejs
 ADD . /app
-
+WORKDIR /app
 EXPOSE 27960/udp
+RUN npm install 
 
-RUN npm install
-
-CMD ["node", "build/ioq3ded.js", "+set", "fs_game", "baseq3", "+set", "dedicated", "2", "+exec server.cfg"]
+# ADD ./q3-install.sh /app/docker-quakejs/
+RUN ["chmod", "+x", "./q3-install.sh"]
+# ADD ./server.cfg /app/docker-quakejs/base/baseq3/server.cfg
+ENTRYPOINT ["./q3-install.sh"]
